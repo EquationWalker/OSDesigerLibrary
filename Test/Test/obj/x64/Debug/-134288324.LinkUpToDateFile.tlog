@@ -1,0 +1,1 @@
+g++ -o "/home/liuxin/projects/Test/bin/x64/Debug/Test.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/liuxin/projects/Test/obj/x64/Debug/main.o
