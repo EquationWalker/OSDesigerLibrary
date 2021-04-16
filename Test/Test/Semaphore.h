@@ -11,22 +11,20 @@
 namespace liuxin
 {
 	class Semaphore {
-	private:
-		struct sembuf {
-			unsigned short sem_num;
-			short sem_op;
-			short sem_flg;
-		};
+	public:
 		union semun {
 			int val; /* Value for SETVAL */
 		};
-		int m_sem_id;
-	public:
 		Semaphore(int n = 1);
 		~Semaphore();
 		void acquire(int n = 1);
 		bool tryAcquire(int n = 1);
 		int available()const;
 		void release(int n = 1);
+	private:
+		int m_sem_id;
+		sembuf m_semop;
+		semun m_ctl;
+
 	};
 }
